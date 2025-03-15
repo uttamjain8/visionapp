@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vision Web App</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <nav>
+                <button onclick="showSection('profiles')">Profiles</button>
+                <button onclick="showSection('vision')">Vision</button>
+            </nav>
+        </header>
+
+        <main>
+            <!-- Profiles Section -->
+            <section id="profiles-section">
+                <div id="profile-container" class="profile-grid">
+                    <!-- Profile cards will be dynamically added here -->
+                </div>
+
+                <!-- Add New Profile Button -->
+                <button id="add-profile-button" class="toggle-button" onclick="toggleForm('profile-form')">Add New Profile</button>
+
+                <!-- Add New Profile Form (Hidden by Default) -->
+                <form id="profile-form" class="form hidden">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" required>
+
+                    <label for="image">Image URL:</label>
+                    <input type="text" id="image">
+
+                    <label for="qualities">Qualities (comma-separated):</label>
+                    <input type="text" id="qualities" required>
+
+                    <label for="why-successful">Why Successful:</label>
+                    <textarea id="why-successful" required></textarea>
+
+                    <label for="category">Category:</label>
+                    <select id="category" required>
+                        <option value="Visionary">Visionary</option>
+                        <option value="Inspiring">Inspiring</option>
+                        <option value="Immediate">Immediate</option>
+                    </select>
+
+                    <button type="submit">Add Profile</button>
+                </form>
+            </section>
+
+            <!-- Vision Section -->
+            <section id="vision-section" class="hidden">
+                <h2>Your Vision</h2>
+
+                <!-- Add Vision Button -->
+                <button id="add-vision-button" class="toggle-button" onclick="toggleForm('vision-form')">Add Vision</button>
+
+                <!-- Add Vision Form (Hidden by Default) -->
+                <!-- Vision Form -->
+                <form id="vision-form" class="form hidden">
+                    <label for="definition-of-success">Definition of Success:</label>
+                    <textarea id="definition-of-success" required></textarea>
+
+                    <label for="your-vision">Your Vision:</label>
+                    <textarea id="your-vision" required></textarea>
+
+                    <label for="expected-qualities">Expected Qualities (comma-separated):</label>
+                    <input type="text" id="expected-qualities" required>
+
+                    <!-- Image Input -->
+                    <label for="vision-image">Vision Image (URL or Upload):</label>
+                    <input type="text" id="vision-image-url" placeholder="Enter image URL">
+                    <input type="file" id="vision-image-upload" accept="image/*">
+                    <small>You can either provide an image URL or upload an image.</small>
+
+                    <button type="submit">Save Vision</button>
+                </form>
+
+                <h3>Your Saved Vision</h3>
+                <div id="saved-vision" class="saved-vision">
+                    <!-- Saved vision will be displayed here -->
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <button onclick="exportData()">Export Data</button>
+            <button onclick="importData()">Import Data</button>
+            <input type="file" id="import-file" style="display: none;" accept=".json">
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
